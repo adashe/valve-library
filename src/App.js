@@ -45,19 +45,23 @@ export default function App() {
         <div className="App">
             <h1>Valve Library</h1>
             <div className="container">
-                <ValveList handleValveClick={handleValveClick} />
+                <ValveList
+                    current={current}
+                    handleValveClick={handleValveClick}
+                />
                 <Image valve={current} />
             </div>
         </div>
     );
 }
 
-function ValveList({ handleValveClick }) {
+function ValveList({ current, handleValveClick }) {
     return (
         <ul className="valve-list">
             {valves.map((valve) => (
                 <Valve
                     valve={valve}
+                    current={current}
                     key={valve.id}
                     handleValveClick={handleValveClick}
                 />
@@ -66,9 +70,13 @@ function ValveList({ handleValveClick }) {
     );
 }
 
-function Valve({ valve, handleValveClick }) {
+function Valve({ valve, current, handleValveClick }) {
     return (
-        <li className="valve" onClick={handleValveClick} id={valve.id}>
+        <li
+            className={valve === current ? "valve current" : "valve"}
+            onClick={handleValveClick}
+            id={valve.id}
+        >
             Valve {valve.id}
         </li>
     );
@@ -77,15 +85,17 @@ function Valve({ valve, handleValveClick }) {
 function Image({ valve }) {
     return (
         <div>
-            <img
-                src={
-                    valve
-                        ? `${valve.imageURL}`
-                        : "https://i.cbc.ca/1.7051962.1701966936!/fileImage/httpImage/image.jpg_gen/derivatives/original_1180/gorgosaurus-and-citipes.jpg?im="
-                }
-                className="image"
-            ></img>
             <h2>{valve ? `Valve ${valve.id}` : ""}</h2>
+            <div className="image-div">
+                <img
+                    src={
+                        valve
+                            ? `${valve.imageURL}`
+                            : "https://i.cbc.ca/1.7051962.1701966936!/fileImage/httpImage/image.jpg_gen/derivatives/original_1180/gorgosaurus-and-citipes.jpg?im="
+                    }
+                    alt="placeholder"
+                ></img>
+            </div>
         </div>
     );
 }

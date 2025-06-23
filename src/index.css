@@ -6,7 +6,8 @@ body {
 }
 .App {
     background: white;
-    width: 1000px;
+    width: 860px;
+    height: 560px;
     text-align: center;
     margin: 10px auto;
     padding: 10px;
@@ -14,33 +15,43 @@ body {
 }
 .container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 .valve-list {
-    background-color: rgb(180, 180, 180);
     min-width: 300px;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
 .valve {
-    background-color: rgb(255, 255, 255);
     margin: 10px;
     padding: 10px;
     text-align: left;
     cursor: pointer;
     border-radius: 10px;
+    border: 1px solid #b4b3b3;
 }
-.image {
-    background-color: rgb(180, 180, 180);
-    min-width: 500px;
+.valve:hover {
+    background-color: #b4b3b3;
+}
+.current {
+    background-color: darkslategrey;
+    color: white;
+    border: 1px solid darkslategrey;
+}
+.current:hover {
+    background-color: darkslategrey;
+    cursor: default;
+}
+.image-div {
+    min-width: 400px;
     margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
+    height: 300px;
 }
 li {
     list-style-type: none;
 }
 img {
     width: 400px;
+    border-radius: 10px;
 }
